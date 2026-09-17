@@ -27,6 +27,13 @@
 - Attach workflow that works: not yet tested.
 - Injection vector that works (proxy DLL name / injector / framework): not yet tested.
 
+**🎮 2026-09-17 (home PC `RTX`, `/lm`) — FIRST LIVE LOOK.**
+- **Runs:** Launches from Steam and reaches the main menu in ~30 s `[verified-live 2026-09-17, n=2]`.
+- **With our file added:** A 64-bit `d3d11.dll` proxy next to `HeavyRain.exe` loads, resolves 51/51 exports, logs `D3D11CreateDevice`, and the game reaches the main menu `[verified-live 2026-09-17, n=1]`. The proxy comes from the shared generator `staging/_shared/proxy-gen/` (every export of the real system dll re-exported with the same ordinals; first call of each export logged). 
+- **Windowed (for measuring; 1280×720 keeps aspect-keyed numbers the same on both PCs):** In-game Options → Graphics: Display Mode = Windowed, Resolution = 1280×720, **F** = Apply, then confirm the 15-second keep-settings prompt (the user confirmed it by hand). Stored in `<game>\user_setting.ini` `[GRAPHIC_SECTION]` `Resolution=1280 x 720`, `ScreenMode=2` (**2 = Windowed**) `[verified-live 2026-09-17, n=2]`.
+- **Driving it:** Menus are mouse-driven: click at screen coordinates; Esc = back. The resolution list wraps (right from the largest goes to 640×480). `WM_CLOSE` opens a Win32 `ARE YOU SURE YOU WISH TO EXIT GAME?` box; its OK button accepts `BM_CLICK`.
+- **Dead ends:** Enter from the keyboard did not confirm the keep-settings prompt; it reverted after its timer `[verified-live 2026-09-17, n=1]`.
+
 ## 5. Threading & frame structure
 - Immediate context only, or deferred contexts + command lists?:
 - Which thread(s) do what; render-thread name(s):
