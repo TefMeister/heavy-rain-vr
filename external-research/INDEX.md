@@ -1,6 +1,8 @@
 # Research index
 
-**Last `/gr` pass: 2026-09-17 (estate sweep) — CHECK-IN.** First pass: folder bootstrapped; one topic on the public modding state (Quantic Dream modding community, archive format, free-camera attempts).
+**Last `/gr` pass: 2026-09-23 (estate sweep) — CHECK-IN.** Checked phunkaeg's *VR Modding Playbook*: no entry for this engine or game (its Detroit: Become Human VR entry is the same studio, not yet read). Nothing filed.
+
+_Previous: **Last `/gr` pass: 2026-09-17 (estate sweep) — CHECK-IN.** First pass: folder bootstrapped; one topic on the public modding state (Quantic Dream modding community, archive format, free-camera attempts)._
 
 Every research topic gathered for this project, newest first. Each row links to a self-contained
 write-up in `topics/`. Status tags:
