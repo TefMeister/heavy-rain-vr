@@ -41,7 +41,13 @@
 
 ## 6. Camera & projection delivery (the crucial section)
 - How the world transform reaches the GPU (shared VP buffer / per-draw MVP /
-  other), with **shader-reflection / disassembly evidence**:
+  other), with **shader-reflection / disassembly evidence**: **most likely per-draw MVP** (2026-09-28, `/pd`): the
+  exe's 227 DXBC shaders (readable in `.rdata` despite the Steam DRM wrapper) use one buffer `ConstentValue` (sic)
+  with D3D9-style `register0…` variables; the biggest group (74) names +0 `modelViewProj` `[inferred-static
+  2026-09-28, n=227]`. Material shaders are probably in the compressed `BigFile_WIN.*` and unread. Engine: Quantic
+  Dream **ICE**; built-in **free camera** in `CameraSystem\CameraDirector.cpp` ("Integrated FreeCamera", a full
+  `FreeCam_*` action set) and a `CAMERA MODIFIER DEBUG MENU`. Detail:
+  `dev-archive/recon/2026-09-28-debug-menu-free-camera-and-shaders/`.
 - Exact constant-buffer slot, parameter name(s), byte offset(s), layout,
   handedness, row/column convention:
 - Where projection `P` / FOV comes from:
@@ -63,7 +69,7 @@
 ## 9. cvar / console cheat sheet
 | command / cvar | effect | use |
 |---|---|---|
-| | | |
+| `DebugMenu`, `Cheat`, `ScriptMenu`, `ViewerMode`, `Fullscreen`, `ResolutionX/Y`, `WindowOnTop`, `EnableLuaPrint`, `LUAFile` … | a developer settings table in the exe; the exe also names `config.txt` and `user_setting.ini` `[inferred-static 2026-09-28]` | where it is read from is unknown `[hypothesis]`: the `[FLAT]` row tests `config.txt` beside the exe |
 
 ## 10. Autonomous harness recipe (this game)
 - Launch to a known scene (commands used):
