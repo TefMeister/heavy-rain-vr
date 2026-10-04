@@ -1,6 +1,8 @@
 # Research index
 
-**Last `/gr` pass: 2026-09-29 (estate sweep) — CHECK-IN.** Inbox empty; one search for the `config.txt` `DebugMenu` route found only the PS3 debug-mode history (the fan wiki page was unreachable to an automated fetch, which is not a negative). Nothing new.
+**Last `/gr` pass: 2026-10-04 (estate sweep, second pass) — CHECK-IN.** Inbox empty; board `OPEN` rows read: one search for a public note on the `DebugMenu` config setting or the free camera found nothing. Nothing new.
+
+_Previous: **Last `/gr` pass: 2026-09-29 (estate sweep) — CHECK-IN.** Inbox empty; one search for the `config.txt` `DebugMenu` route found only the PS3 debug-mode history (the fan wiki page was unreachable to an automated fetch, which is not a negative). Nothing new._
 
 _Previous: **Last `/gr` pass: 2026-09-23 (estate sweep) — CHECK-IN.** Checked phunkaeg's *VR Modding Playbook*: no entry for this engine or game (its Detroit: Become Human VR entry is the same studio, not yet read). Nothing filed.
 
