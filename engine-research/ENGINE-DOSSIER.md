@@ -69,7 +69,17 @@
   `ViewportDisableFreeCam` (bound near `0x140267FFF` / `0x140268077`); every CameraDirector builds the "Integrated
   FreeCamera" object (`0x1403D2680`); the debug-menu " Free camera :" pages only display byte `+0xA1` of a camera object;
   `FreeCam_*` actions registered in `0x1403E3160`. No key, setting or switch turns it on `[inferred-static 2026-10-11]`.
-  Route: call the native function from our own proxy. The Steam stub was unwrapped with Steamless v3.1.0.5 (atom0s) on a
+  Route: call the native function from our own proxy.
+  **Recipe (reader, 2026-10-11, RVAs from `0x140000000`, x64 calls) `[inferred-static 2026-10-11]`, untried:**
+  `MakeFreeCam(viewport, 1)` RVA `0x263B10` (unique signature `40 57 48 83 EC 30 48 C7 44 24 20 FE FF FF FF 48 89 5C 24
+  48 8B DA 48 8B 49 58`); `DisableFreeCam(viewport, 1)` `0x263C50`; or the debug menu's way, `SetFreeCam(director, bool)`
+  `0x291490` then `PlaceFreeCam(director, director+0x230)` `0x291520`. No global pointer: detour
+  `GetCameraDirector(viewport, idx)` `0x2673F0` (signature `48 89 5C 24 08 57 48 83 EC 20 48 8B D9 8B FA 48 8B 49 58 48 85
+  C9 74 34`, 37 callers, game-logic thread), keep the viewport when `idx == 1`, and make the call there on a flag set
+  from Present (never from Present itself `[hypothesis]`). Director: vtable `0xCEDCE8`, `+0xA1` free-cam byte, `+0x90`
+  activation slot, `+0x1F8` handle to the `CAMERA_BEHAVIOR_FREE` object (vtable `0xCF1A90`), `+0x230` current shot.
+  Free-cam update `0x3E24D0` reads the `FreeCam_*` actions (PC key bindings unknown); pose probably at `+0x224..+0x278`
+  `[hypothesis]`. Full addresses: `dev-archive/recon/2026-10-11-config-txt-does-nothing/reader-free-camera-recipe.md`. The Steam stub was unwrapped with Steamless v3.1.0.5 (atom0s) on a
   copy kept on E: (`SteamStub 3.1 x64`) `[measured 2026-10-11]`; addresses are for image base `0x140000000`.
 - Exact constant-buffer slot, parameter name(s), byte offset(s), layout,
   handedness, row/column convention:
