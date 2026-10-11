@@ -30,3 +30,13 @@ Self-launch ✅, menu → gameplay ✅, commands (trigger files) ✅, camera ✅
 
 Signs and units against a real head (the headset feed will settle them); comfort; whether the film camera's cuts
 interfere while the free camera is on.
+
+## Later the same session: the headset feed (reader build) exits the game
+
+The reader built `freecam_xr.c` (OpenXR head pose → the same pose layer, switch `heavyrain_freecam_xr.txt`, runtime and
+loader from `heavyrain_vr.ini`); self-tests 33/33 + 24/24. Installed `b19af2f89661` and tried it with the OpenXR
+simulator: the log reached `xr: runtime for this game only: …openxr_simulator.json` and the game was gone within
+about 5 s, before `session running`, with **no Windows crash event** `[verified-live 2026-10-11, n=1]`. Evidence:
+`dev-archive/recon/2026-10-11-headset-feed-exits-the-game/`. Not yet diagnosed: log each OpenXR step (loader load,
+`xrCreateInstance`, `xrGetSystem`, the D3D11 device, `xrCreateSession`) and try the same thread in a small test host
+outside the game. The build stays installed: without the switch file it behaves exactly like `cab5b4db065f`.

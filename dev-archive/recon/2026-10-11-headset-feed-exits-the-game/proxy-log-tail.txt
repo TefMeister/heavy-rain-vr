@@ -1,0 +1,4 @@
+[2026-10-11 17:42:38.840] === heavyrain d3d11.dll proxy detached (process exit) ===
+[2026-10-11 17:47:48.516] === heavyrain d3d11.dll proxy attached, PID 13076, exe D:\Program Files (x86)\Steam\steamapps\common\HEAVY RAIN\HeavyRain.exe ===
+[2026-10-11 17:47:48.517] real dll: C:\Windows\system32\d3d11.dll (loaded at 00007FFEA01E0000), 51 of 51 exports resolved
+[2026-10-11 17:47:49.501] first call: D3D11CreateDevice (ordinal 22) thread 21188

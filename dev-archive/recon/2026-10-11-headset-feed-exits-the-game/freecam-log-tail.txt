@@ -1,0 +1,6 @@
+17:42:14.715 [freecam] pose: head pose OFF (file removed)
+17:47:49.354 [freecam] found: GetCameraDirector +2673F0, MakeFreeCam +263B10, DisableFreeCam +263C50
+17:47:49.354 [freecam] pose: free-camera update hooked (vtable +0x2D0); head pose from heavyrain_freecam_look.txt ("yaw pitch roll x y z")
+17:50:12.641 [freecam] xr: heavyrain_freecam_xr.txt found - the headset drives the head pose
+17:50:12.650 [freecam] xr: settings: 1.000 world units per metre, position on, MirrorZ 0
+17:50:12.650 [freecam] xr: runtime for this game only: D:\claude video game stuff\tools\OpenXR-Simulator\openxr_simulator.json
