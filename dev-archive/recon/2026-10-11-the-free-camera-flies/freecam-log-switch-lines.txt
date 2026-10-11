@@ -1,0 +1,20 @@
+16:56:37.670 [freecam] worker started (thread 20832), waiting for the Steam stub to decrypt the code
+16:56:38.449 [freecam] found: GetCameraDirector +2673F0, MakeFreeCam +263B10, DisableFreeCam +263C50
+16:56:38.449 [freecam] detour on GetCameraDirector installed; numpad 1 (game in front) toggles, or drop heavyrain_freecam_on.txt / heavyrain_freecam_off.txt next to the exe
+16:56:52.702 [freecam] main view captured on game thread 19780: viewport 000001349A6051F0 director 000001349BCB8D20
+16:59:18.027 [freecam] switch ON requested by trigger file; runs on the game's next main-view camera lookup
+16:59:18.041 [freecam] SWITCH ON on game thread 19780: viewport 000001349A632190 director 000001349A541080, free-camera byte 0 -> 1 (took effect)
+16:59:18.079 [freecam] free-camera byte is now 1 (seen by the watcher)
+16:59:18.079 [freecam] free-camera object 000001349ACFFF10, vtable CAMERA_BEHAVIOR_FREE (as expected)
+16:59:56.966 [freecam] switch OFF requested by trigger file; runs on the game's next main-view camera lookup
+16:59:56.974 [freecam] SWITCH OFF on game thread 19780: viewport 000001349A632190 director 000001349A541080, free-camera byte 1 -> 0 (took effect)
+16:59:57.017 [freecam] free-camera byte is now 0 (seen by the watcher)
+17:00:26.166 [freecam] switch ON requested by trigger file; runs on the game's next main-view camera lookup
+17:00:26.173 [freecam] SWITCH ON on game thread 19780: viewport 000001349A632190 director 000001349A541080, free-camera byte 0 -> 1 (took effect)
+17:00:26.217 [freecam] free-camera byte is now 1 (seen by the watcher)
+17:01:10.821 [freecam] switch OFF requested by trigger file; runs on the game's next main-view camera lookup
+17:01:10.826 [freecam] SWITCH OFF on game thread 19780: viewport 000001349A632190 director 000001349A541080, free-camera byte 1 -> 0 (took effect)
+17:01:10.872 [freecam] free-camera byte is now 0 (seen by the watcher)
+166
+17:01:10.314 [freecam] pose +224: 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 | +360: -nan 0.0000 -nan 0.0000
+17:01:10.821 [freecam] pose +224: 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 | +360: -nan 0.0000 -nan 0.5000
