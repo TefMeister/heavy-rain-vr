@@ -34,6 +34,23 @@
 - **Driving it:** Menus are mouse-driven: click at screen coordinates; Esc = back. The resolution list wraps (right from the largest goes to 640×480). `WM_CLOSE` opens a Win32 `ARE YOU SURE YOU WISH TO EXIT GAME?` box; its OK button accepts `BM_CLICK`.
 - **Dead ends:** Enter from the keyboard did not confirm the keep-settings prompt; it reverted after its timer `[verified-live 2026-09-17, n=1]`.
 
+**🖥️ 2026-10-11 (dev PC, `/lm`, five launches) — FIRST RUN HERE; WINDOWED BY THE MENU, NOT THE FILE.**
+- **Runs as shipped** to the main menu (borderless 1920x1080 by default) `[verified-live 2026-10-11, n=1]`.
+- ⚠️ **`user_setting.ini` is written, not obeyed, at launch:** with `ScreenMode=2` + `Resolution=1280 x 720` in the file
+  (once alone, once inside the game's full list) the game still started borderless at 1920x1080, and its menu showed
+  BORDERLESS; with `ScreenMode=1` the same `[verified-live 2026-10-11, n=3 launches]`. A file with only the two keys was
+  overwritten with the full default list. So the 2026-09-17 "2 = Windowed, edit the file" note does not hold here.
+- **The menu route works unattended:** Options (0.363, 0.486) → Graphics (0.385, 0.615); Display Mode right arrow
+  (0.401, 0.385) once → WINDOWED; Resolution left arrow (0.241, 0.325) 13 times from 1920x1080 → 1280x720 (read each
+  value); **F** = Apply; then **click YES** (0.195, 0.703 of the now 1280x720 window) inside the 15 s timer (a click
+  works where Enter did not). The window then measured client 1280x720, desktop untouched, and stayed so on the next
+  launch `[verified-live 2026-10-11, n=2 launches]`. The file afterwards reads `ScreenMode=2`, so where the game really
+  keeps it is not established (the profile/save, `[hypothesis]`).
+- **Music:** Options → Sound → MUSIC down arrow (0.456, 0.596), about 3 per click, to 0, then Enter (VALIDATE); voices
+  and effects stay 100. `MusicVolume=0` in `user_setting.ini` was ignored, so this too lives in the profile `[verified-live 2026-10-11, n=1]`.
+- The dev PC's game is at `D:\Program Files (x86)\Steam\steamapps\common\HEAVY RAIN`; `CONTINUE` loads the opening
+  bedroom scene (Steam Cloud save).
+
 ## 5. Threading & frame structure
 - Immediate context only, or deferred contexts + command lists?:
 - Which thread(s) do what; render-thread name(s):
@@ -48,6 +65,12 @@
   Dream **ICE**; built-in **free camera** in `CameraSystem\CameraDirector.cpp` ("Integrated FreeCamera", a full
   `FreeCam_*` action set) and a `CAMERA MODIFIER DEBUG MENU`. Detail:
   `dev-archive/recon/2026-09-28-debug-menu-free-camera-and-shaders/`.
+- **Free camera, how it is switched (2026-10-11, reader, unwrapped copy):** only by the Lua methods `ViewportMakeFreeCam` /
+  `ViewportDisableFreeCam` (bound near `0x140267FFF` / `0x140268077`); every CameraDirector builds the "Integrated
+  FreeCamera" object (`0x1403D2680`); the debug-menu " Free camera :" pages only display byte `+0xA1` of a camera object;
+  `FreeCam_*` actions registered in `0x1403E3160`. No key, setting or switch turns it on `[inferred-static 2026-10-11]`.
+  Route: call the native function from our own proxy. The Steam stub was unwrapped with Steamless v3.1.0.5 (atom0s) on a
+  copy kept on E: (`SteamStub 3.1 x64`) `[measured 2026-10-11]`; addresses are for image base `0x140000000`.
 - Exact constant-buffer slot, parameter name(s), byte offset(s), layout,
   handedness, row/column convention:
 - Where projection `P` / FOV comes from:
@@ -77,7 +100,12 @@
 - Frame-capture method; where images land:
 
 ## 11. Dead ends & false leads (save future time)
-- none yet.
+- **`config.txt` beside the exe does nothing** (`DebugMenu=1`, `Cheat=1`, `Fullscreen=0`, `ResolutionX/Y`): main menu
+  and gameplay unchanged, no overlay `[verified-live 2026-10-11, n=1]`. Static, on a Steamless-unwrapped copy: the boot
+  code builds the path `<exe>\config.txt` and never opens it; the developer table's file loader has no callers; nothing
+  reads `DebugMenu` or `Cheat`; the command line takes only `-nofocus`, `-debugdevice`, `-enablemarker`, `-renderdoc`
+  `[inferred-static 2026-10-11]`. Detail: `dev-archive/recon/2026-10-11-config-txt-does-nothing/` and the reader note in §6.
+- `user_setting.ini` edits for window mode and music: ignored at launch (§4).
 
 ## 12. Open risks toward the North Star
 - ⚠️ The Steam DRM wrapper encrypts the code on disk, so static reading of the code needs it unwrapped first (Steamless, a public tool, is the usual route) `[hypothesis]`.

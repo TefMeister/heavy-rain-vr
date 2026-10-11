@@ -1,0 +1,19 @@
+
+[GRAPHIC_SECTION]
+Resolution=1280 x 720
+ScreenMode=2
+TextureQuality=2
+ModelQuality=2
+AmbientOcclusion=2
+ShadowQuality=2
+ReflectionQuality=2
+PostProcessAA=2
+VisualQuality=2
+MSAA=2
+VSync=1
+VSyncInterval=1
+
+[SOUND_SECTION]
+Device_ID=default
+Channel_Count=0
+MusicVolume=0
