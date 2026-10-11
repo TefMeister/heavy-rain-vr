@@ -136,3 +136,13 @@
   `[verified-live 2026-10-11, n=1 each]`. Exact key-to-axis mapping not yet measured.
 - The pose is NOT at `+0x224..+0x278` (all zeros while moving) nor `+0x360` (NaN) `[measured 2026-10-11]`.
 - Note and evidence: `modding-notes/2026-10-11-lm-the-free-camera-flies.md`, `dev-archive/recon/2026-10-11-the-free-camera-flies/`.
+- **Reader, the same day, unwrapped copy `[inferred-static 2026-10-11]`** (supersedes the recipe's "Moving it" part,
+  which had the two functions swapped): vt+0x298 = `0x3E24D0` is the ACTION handler `(this, actionId, float value)`;
+  vt+0x2D0 = `0x3E1F00` is the per-frame update `(this, float dt)`, returning `this+0xE0`. Actions (registered in
+  `0x3E3160`): 0x1F-0x24 strafe forward/back/up/down/left/right (+0x1D4..+0x1E8), 0x25-0x28 turn up/down/left/right
+  (+0x1EC..+0x1F8), 0x29/0x2A roll, 0x2B/0x2C focal, 0x2D/0x2E speed, 0x30 reset, 0xFF look at player, 0x31-0x3C depth
+  of field, 0x3D/0x3E sprint. Default bindings go to pad devices 2/3 only (PS3 codes; left stick moves, right stick
+  turns, d-pad up/down and roll, LB/LT zoom, RB/RT speed); no keyboard code is bound, yet the keyboard steered it live,
+  so the PC layer maps keys onto the pad actions `[hypothesis]`. **Pose:** `this+0xE0` is a 0xB0-byte camera block;
+  world matrix at **+0xF0..+0x12F** (rows right, up, back, then position xyz at **+0x120**), FOV in radians at
+  **+0x130**. Route for head tracking: write that matrix right after vt+0x2D0 returns, on the game thread `[hypothesis]`.
