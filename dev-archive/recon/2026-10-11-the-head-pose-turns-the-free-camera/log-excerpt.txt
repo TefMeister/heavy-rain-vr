@@ -1,0 +1,8 @@
+17:41:19.884 [freecam] pose (game's own): right -0.650 0.007 0.760 | up 0.012 1.000 0.002 | back -0.760 0.010 -0.650 | pos 3.832 4.008 -4.727 | fov 54.4 deg | updates 277, head written 0, restored 0, kept theirs 0
+17:41:34.388 [freecam] pose: head pose ON: yaw 15.0 pitch 0.0 roll 0.0, offset 0.000 0.000 0.000
+17:41:40.220 [freecam] pose: head pose OFF (file removed)
+17:42:08.614 [freecam] pose: head pose ON: yaw 0.0 pitch 10.0 roll 0.0, offset 0.000 0.000 0.000
+17:42:10.653 [freecam] pose: head pose ON: yaw 0.0 pitch 0.0 roll 10.0, offset 0.000 0.000 0.000
+17:42:12.686 [freecam] pose: head pose ON: yaw 0.0 pitch 0.0 roll 0.0, offset 0.300 0.000 0.000
+17:42:14.715 [freecam] pose: head pose OFF (file removed)
+17:42:33.519 [freecam] SWITCH OFF on game thread 21104: viewport 0000020D17C16F00 director 0000020D19082F10, free-camera byte 1 -> 0 (took effect)

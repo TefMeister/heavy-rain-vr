@@ -1,0 +1,8 @@
+phase correlation vs the picture before (x,y px), mean abs diff:
+yaw 15 after 1.5 s: (-329, 2) 40.6
+yaw 15, 1.5 s -> 5 s: (0, 0) 1.4  (holds, no spin)
+after removing the file: (0, 0) 1.8
+pitch 10: (0, -218) 36.6
+roll 10: (-21, 10) 26.6 (rotation)
+x 0.3: (120, 0) 38.9
+all removed: (0, 0) 1.8

@@ -152,3 +152,15 @@
   matrix if ours is still there, run the update, keep the result, write it with the head pose on top. Self-test 33/33,
   including a stand-in that updates in place; the test fails with the restore removed `[verified-numerically
   2026-10-11]`. Not run. Note: `modding-notes/2026-10-11-pd-head-pose-on-the-free-camera.md`.
+
+## 2026-10-11 evening (`/lm`, dev PC): the head-pose layer turns the free camera, without spin
+
+`cab5b4db065f` (the `/pd` build: the free camera's update wrapped through vtable +0x2D0, the game's own matrix restored
+before each update and the head pose put on top after). Evidence: `dev-archive/recon/2026-10-11-the-head-pose-turns-the-free-camera/`.
+- The game's own pose logs correctly: rows constant, position changing while flying with W (e.g. `pos 2.920 4.020
+  -5.507` → `3.832 4.008 -4.727`), FOV 54.4° `[verified-live 2026-10-11, n=1]`.
+- `heavyrain_freecam_look.txt` = `15 0 0 0 0 0`: the view turns (-329 px) within 1.5 s and then **holds still** (1.5 s →
+  5 s: shift 0, mean difference 1.4); removing the file returns it exactly (shift 0) `[measured 2026-10-11, n=1]`.
+- Pitch 10° → (0, -218) px; roll 10° → a rotation; x 0.3 → (+120, 0) px; all removed → exactly back `[measured 2026-10-11, n=1 each]`.
+  These are the signs a headset feed must map onto.
+- So the caller uses the matrix written after the update; the restore-before-update keeps the game's state clean.
