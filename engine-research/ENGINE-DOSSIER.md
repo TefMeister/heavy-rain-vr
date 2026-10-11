@@ -125,3 +125,14 @@
 ## 12. Open risks toward the North Star
 - ⚠️ The Steam DRM wrapper encrypts the code on disk, so static reading of the code needs it unwrapped first (Steamless, a public tool, is the usual route) `[hypothesis]`.
 - ⚠️ **Heavy Rain is played almost entirely through fixed, film-style cameras.** A head-tracked first-person view is not how this game is built, so the realistic first goal is probably a large 3D screen in the headset rather than being inside the scene `[hypothesis]`.
+
+## 2026-10-11 (`/lm`, dev PC): the free camera switches on, takes the view, and flies
+
+- `d37645c9bc0c` (the `/pd` build): detour on `GetCameraDirector` found and installed 0.8 s after start; main view
+  captured on the game thread at the main menu; `MakeFreeCam` / `DisableFreeCam` via trigger files flip the director's
+  `+0xA1` byte `0 -> 1` / `1 -> 0`, object vtable `CAMERA_BEHAVIOR_FREE`, no crash `[verified-live 2026-10-11, n=2 each]`.
+- With it on, the picture is still (5 s apart: shift 0, mean difference 1.7; with it off: 38) `[measured 2026-10-11]`.
+- **Keyboard steers it:** W forward, S back, A sideways, Up arrow up, Left arrow turns and tilts
+  `[verified-live 2026-10-11, n=1 each]`. Exact key-to-axis mapping not yet measured.
+- The pose is NOT at `+0x224..+0x278` (all zeros while moving) nor `+0x360` (NaN) `[measured 2026-10-11]`.
+- Note and evidence: `modding-notes/2026-10-11-lm-the-free-camera-flies.md`, `dev-archive/recon/2026-10-11-the-free-camera-flies/`.

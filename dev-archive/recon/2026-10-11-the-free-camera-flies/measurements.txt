@@ -1,0 +1,4 @@
+still-test (phase correlation, mean abs diff):
+free cam ON, 5 s apart: shift (0,0), diff 1.69
+free cam OFF, 5 s apart: shift (158,29), diff 38.1
+keys held 1.5 s with free cam on, mean change: W 31.7, S 31.8, A 28.5, Up 96.5, Left 117.0
