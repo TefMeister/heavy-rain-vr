@@ -22,3 +22,5 @@ shave, brush teeth, fight. As it stands that is complicated and easy to fail. Tw
 input state), then either answer it for the player (simpler) or turn the controller's real movement into the mouse
 or stick movement it expects (VR). The game's input actions are registered by name in the exe, which may help.
 ⚠️ Not checked: how the game reads gestures has not been looked at.
+
+Chosen by Tefa: 2026-10-11
