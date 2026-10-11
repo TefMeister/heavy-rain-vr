@@ -79,7 +79,12 @@
   from Present (never from Present itself `[hypothesis]`). Director: vtable `0xCEDCE8`, `+0xA1` free-cam byte, `+0x90`
   activation slot, `+0x1F8` handle to the `CAMERA_BEHAVIOR_FREE` object (vtable `0xCF1A90`), `+0x230` current shot.
   Free-cam update `0x3E24D0` reads the `FreeCam_*` actions (PC key bindings unknown); pose probably at `+0x224..+0x278`
-  `[hypothesis]`. Full addresses: `dev-archive/recon/2026-10-11-config-txt-does-nothing/reader-free-camera-recipe.md`. The Steam stub was unwrapped with Steamless v3.1.0.5 (atom0s) on a
+  `[hypothesis]`. Full addresses: `dev-archive/recon/2026-10-11-config-txt-does-nothing/reader-free-camera-recipe.md`.
+  **Built (2026-10-11, `/pd`):** the switch is in our d3d11 proxy (`staging/heavy-rain-vr/proxy-d3d11/hooks/freecam.c`):
+  numpad 1 or a trigger file → request → `MakeFreeCam`/`DisableFreeCam` inside the `GetCameraDirector` detour, logging
+  the `+0xA1` byte before/after and the free-camera floats. All five signatures unique in the unwrapped copy;
+  `MakeFreeCam` does not call `GetCameraDirector`, so no recursion `[inferred-static 2026-10-11]`. Self-test 21/21
+  `[compile-verified 2026-10-11]`; not run in the game. Note: `modding-notes/2026-10-11-pd-free-camera-switch-built.md`. The Steam stub was unwrapped with Steamless v3.1.0.5 (atom0s) on a
   copy kept on E: (`SteamStub 3.1 x64`) `[measured 2026-10-11]`; addresses are for image base `0x140000000`.
 - Exact constant-buffer slot, parameter name(s), byte offset(s), layout,
   handedness, row/column convention:
