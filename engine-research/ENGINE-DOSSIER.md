@@ -164,3 +164,6 @@ before each update and the head pose put on top after). Evidence: `dev-archive/r
 - Pitch 10° → (0, -218) px; roll 10° → a rotation; x 0.3 → (+120, 0) px; all removed → exactly back `[measured 2026-10-11, n=1 each]`.
   These are the signs a headset feed must map onto.
 - So the caller uses the matrix written after the update; the restore-before-update keeps the game's state clean.
+- **Headset feed** (reader, `freecam_xr.c`, `b19af2f89661`): with the simulator runtime the game exits silently right
+  after `xr: runtime for this game only` and before `session running`; no Windows crash event `[verified-live 2026-10-11, n=1]`.
+  The look-file path is unaffected. Evidence: `dev-archive/recon/2026-10-11-headset-feed-exits-the-game/`.
