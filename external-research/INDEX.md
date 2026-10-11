@@ -1,6 +1,8 @@
 # Research index
 
-**Last `/gr` pass: 2026-10-04 (estate sweep, second pass) — CHECK-IN.** Inbox empty; board `OPEN` rows read: one search for a public note on the `DebugMenu` config setting or the free camera found nothing. Nothing new.
+**Last `/gr` pass: 2026-10-11 (estate sweep) — CHECK-IN.** Inbox empty. One search for a public PC free or debug camera (the board's top [FLAT] row) found nothing beyond the 2026-09-17 topic. Nothing new.
+
+_Previous: **Last `/gr` pass: 2026-10-04 (estate sweep, second pass) — CHECK-IN.** Inbox empty; board `OPEN` rows read: one search for a public note on the `DebugMenu` config setting or the free camera found nothing. Nothing new._
 
 _Previous: **Last `/gr` pass: 2026-09-29 (estate sweep) — CHECK-IN.** Inbox empty; one search for the `config.txt` `DebugMenu` route found only the PS3 debug-mode history (the fan wiki page was unreachable to an automated fetch, which is not a negative). Nothing new._
 
