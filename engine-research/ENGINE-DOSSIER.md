@@ -146,3 +146,9 @@
   so the PC layer maps keys onto the pad actions `[hypothesis]`. **Pose:** `this+0xE0` is a 0xB0-byte camera block;
   world matrix at **+0xF0..+0x12F** (rows right, up, back, then position xyz at **+0x120**), FOV in radians at
   **+0x130**. Route for head tracking: write that matrix right after vt+0x2D0 returns, on the game thread `[hypothesis]`.
+- **Head-pose layer built (2026-10-11, `/pd`):** the update multiplies the rotation of its own `+0xF0` matrix in place
+  (no separate yaw/pitch), so it is the camera's only state and a direct write would accumulate `[inferred-static
+  2026-10-11]`. `hooks/freecam_pose.c` wraps vt+0x2D0 (the only route: one pointer in the image): restore the game's
+  matrix if ours is still there, run the update, keep the result, write it with the head pose on top. Self-test 33/33,
+  including a stand-in that updates in place; the test fails with the restore removed `[verified-numerically
+  2026-10-11]`. Not run. Note: `modding-notes/2026-10-11-pd-head-pose-on-the-free-camera.md`.
