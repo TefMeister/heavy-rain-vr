@@ -167,3 +167,13 @@ before each update and the head pose put on top after). Evidence: `dev-archive/r
 - **Headset feed** (reader, `freecam_xr.c`, `b19af2f89661`): with the simulator runtime the game exits silently right
   after `xr: runtime for this game only` and before `session running`; no Windows crash event `[verified-live 2026-10-11, n=1]`.
   The look-file path is unaffected. Evidence: `dev-archive/recon/2026-10-11-headset-feed-exits-the-game/`.
+
+## 2026-10-12 (`/pd`, dev PC, no launch): the game's own C++ runtime copy closes it inside the OpenXR runtime
+- The game folder carries `msvcp140.dll` + `vcruntime140.dll` **14.16** (2018); every DLL loaded into the game gets them.
+  OpenXR runtimes built with VS 2022 17.10+ need 14.40+ (`std::mutex` built in place; the old copy crashes at the first
+  lock) `[reported]`. The simulator is one: it imports `_Mtx_lock` but not `_Mtx_init_in_situ` `[inferred-static 2026-10-12]`.
+- Outside the game, a test program running our headset steps works with the Windows copy (296 frames, 296 poses in 5 s)
+  and dies inside `xrCreateInstance` with the game's two files beside it, leaving a 0-byte simulator log, as the game
+  run did `[measured 2026-10-12, n=2 each]`. Evidence: `dev-archive/recon/2026-10-12-old-cpp-runtime-closes-the-game/`.
+- Build `3673914f9785` refuses to start the headset thread below 14.40 and logs the fix; logs each OpenXR step.
+- Open: does the game run with the Windows copies (its two files moved out)? Needs one launch.
