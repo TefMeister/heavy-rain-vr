@@ -1,0 +1,19 @@
+# run 1: game's old CRT moved out
+12:51:53.024 [freecam] xr: msvcp140.dll in use: C:\Windows\SYSTEM32\MSVCP140.dll, version 14.51.36247
+12:51:53.312 [freecam] xr: step 1 loader loaded; step 2 xrCreateInstance ...
+12:51:53.382 [freecam] xr: steps 2-4 ok: instance, headset system, D3D11 requirements
+12:51:53.438 [freecam] xr: step 5 own D3D11 device ok (adapter matched)
+12:51:53.438 [freecam] xr: step 6 xrCreateSession ...
+12:51:53.438 [freecam] xr: session created on the headset thread's own device; waiting for the runtime to start it
+12:51:53.521 [freecam] xr: session running
+12:51:53.522 [freecam] xr: head pose ON from the headset
+# run 2: old CRT back in place, PrivateCppRuntime=1
+13:04:11.295 [freecam] xr: PrivateCppRuntime: on - modern C++ runtime 14.51 loaded from C:\Windows\system32\; 2 older copies hidden from load-by-name
+13:04:11.296 [freecam] xr: msvcp140.dll in use: C:\Windows\system32\msvcp140.dll, version 14.51.36247
+13:04:11.303 [freecam] xr: step 1 loader loaded; step 2 xrCreateInstance ...
+13:04:11.315 [freecam] xr: steps 2-4 ok: instance, headset system, D3D11 requirements
+13:04:11.372 [freecam] xr: step 5 own D3D11 device ok (adapter matched)
+13:04:11.373 [freecam] xr: step 6 xrCreateSession ...
+13:04:11.373 [freecam] xr: session created on the headset thread's own device; waiting for the runtime to start it
+13:04:11.428 [freecam] xr: session running
+13:04:11.429 [freecam] xr: head pose ON from the headset

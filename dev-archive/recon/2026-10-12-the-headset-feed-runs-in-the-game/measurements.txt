@@ -1,0 +1,8 @@
+Global picture shift (phase correlation, 1280x720) against the head-centred frame, run 1:
+yaw 15      dx +328  dy 0
+pitch 10    dx -1    dy +218
+roll 10     rotation (dx -3 dy +23, by eye: tilted)
+x +0.3 m    dx -71   dy 0
+back to 0   dx 0     dy 0   (peak 0.94, mean diff 1.9: exact return)
+Run 2 (old CRT in place, PrivateCppRuntime=1): yaw 15 -> dx +328.
+Mouse with no button held: no change (mean diff 1.7).

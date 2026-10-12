@@ -177,3 +177,12 @@ before each update and the head pose put on top after). Evidence: `dev-archive/r
   run did `[measured 2026-10-12, n=2 each]`. Evidence: `dev-archive/recon/2026-10-12-old-cpp-runtime-closes-the-game/`.
 - Build `3673914f9785` refuses to start the headset thread below 14.40 and logs the fix; logs each OpenXR step.
 - Open: does the game run with the Windows copies (its two files moved out)? Needs one launch.
+
+## 2026-10-12 (`/lm`, dev PC): the headset feed runs in the game
+
+Note: `modding-notes/2026-10-12-lm-the-headset-feed-runs-in-the-game.md`; evidence `dev-archive/recon/2026-10-12-the-headset-feed-runs-in-the-game/`.
+- **The game runs without its own `msvcp140.dll` / `vcruntime140.dll` 14.16** (Windows' 14.51 is used) `[verified-live 2026-10-12, n=1]`; with them out, OpenXR steps 1-6 succeed and the session runs. Confirms the `/pd` diagnosis.
+- **Simulator head pose → picture** (bedroom, free camera, 1280x720): yaw 15 → +328 px and holds; pitch 10 → 218 px; roll tilts; x +0.3 m → -71 px; back to 0 → exact `[verified-live 2026-10-12, n=1 each]`. Matches the text-file pose test.
+- **`PrivateCppRuntime=1`** (`hooks/xr_cpp_redirect.c`): loads the modern runtime by path on the headset thread and hides the game's two old copies from load-by-name before `xrCreateInstance`; works live with the old files in place (yaw 15 → +328 px) `[verified-live 2026-10-12, n=1]`. Relies on the loader's module-list layout `[inferred-static]`. A side-by-side manifest does NOT work: the runtime DLL's embedded manifest wins `[measured 2026-10-12, n=2]`.
+- **Free-camera keys:** W/S forward/back, A/D sideways, Q/E up/down, Up/Down tilt, Left/Right turn+tilt; PageUp/PageDown and the bare mouse do nothing `[verified-live 2026-10-12, n=1 each]`.
+- ⚠️ The simulator's preview window (owned by the game process) sits over the game and keeps returning; move it off-screen before screen captures.
