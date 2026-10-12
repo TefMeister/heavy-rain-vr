@@ -1,0 +1,5 @@
+[ 71937 ms] msvcp140.dll at start: not loaded
+[ 71937 ms] 1 runtime for this process only: D:/claude video game stuff/tools/OpenXR-Simulator/openxr_simulator.json
+[ 71937 ms] 1 loader loaded
+[ 71937 ms] msvcp140.dll after the loader: not loaded
+[ 71937 ms] 2 xrCreateInstance ...

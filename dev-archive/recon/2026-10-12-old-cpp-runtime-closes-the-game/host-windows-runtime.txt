@@ -1,0 +1,21 @@
+[ 72187 ms] msvcp140.dll at start: not loaded
+[ 72187 ms] 1 runtime for this process only: D:/claude video game stuff/tools/OpenXR-Simulator/openxr_simulator.json
+[ 72187 ms] 1 loader loaded
+[ 72187 ms] msvcp140.dll after the loader: not loaded
+[ 72187 ms] 2 xrCreateInstance ...
+[ 72203 ms] 2 xrCreateInstance ok
+[ 72203 ms] msvcp140.dll after the runtime loaded: C:\Windows\SYSTEM32\MSVCP140.dll, version 14.51.36247.0
+[ 72203 ms] 3 xrGetSystem ok
+[ 72203 ms] 4 graphics requirements ok (feature level 0xb000)
+[ 72546 ms] 5 own D3D11 device ok (adapter matched)
+[ 72546 ms] 6 xrCreateSession ...
+[ 72546 ms] 6 xrCreateSession ok
+[ 72546 ms] 7 LOCAL + VIEW spaces ok
+[ 72546 ms]    session state 1
+[ 72546 ms]    session state 2
+[ 72578 ms] 8 xrBeginSession ok - session running (0)
+[ 72578 ms]    session state 3
+[ 72578 ms]    session state 4
+[ 72578 ms]    session state 5
+[ 75546 ms] 9 177 empty frames, 177 head poses in 3 s
+[ 75546 ms] RESULT: the headset steps all work in this process
